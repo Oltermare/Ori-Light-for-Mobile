@@ -2,7 +2,7 @@
 
 /* 注意：如果出现顶部有灰色块挡住标题，最好取消标题居中效果，或者手动调整padding */
 
-/* 1.2.0 */
+/* 1.2.1 */
 
 /* ----------------------------------整体字体大小---------------------------- */
 body {
@@ -104,6 +104,14 @@ button, input, select, textarea {
     z-index: 1;
     overflow: auto;
 }
+/* 缩小按钮上下高度 */
+#keyboardToolbar button svg {
+    /* height: 18px;
+    width: 18px; */
+    padding: 0px 4px 0px 4px;
+    /* margin: 4px;
+    color: var(--b3-theme-on-surface); */
+}
 
 /* -------------------------------------插入菜单hint-------------------- */
 /* 修改为一页显示两列,滚动 */
@@ -148,13 +156,32 @@ button, input, select, textarea {
 }
 
 /* 如果菜单高度超过屏幕，使元素在第二栏溢出 */
-.b3-menu, .protyle-util {
+/* .b3-menu, .protyle-util {
     position: fixed;
     padding: 4px;
     flex-direction: column;
     flex-wrap: wrap;
     max-height: 100%;
     display: flex;
+} */
+
+/* 1029修改 */
+/* 如果菜单高度超过屏幕，可以滚动，子元素强制显示在上层位置 */
+.b3-menu, .protyle-util {
+    position: fixed;
+    padding: 4px;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    max-height: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+.b3-menu__submenu {
+    position: fixed !important;
+    top: inherit !important;
+    left: inherit !important;
+    max-height: 100% !important;
 }
 
 /* 避免颜色问题，避免子菜单被溢出元素覆盖 */
